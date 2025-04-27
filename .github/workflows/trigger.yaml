@@ -10,7 +10,7 @@ jobs:
       - name: Trigger build in infra repo
         run: |
           curl -X POST \
-            -H "Authorization: Bearer 0e970c75ab2772af8d694400c3efbab7d91ce10d" \
-            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: Bearer ${{ secrets.INFRA_PAT }}" \
+            -H "Accept: application/vnd.github+json" \
             https://api.github.com/repos/shahryaraly/project-rc-infra/dispatches \
             -d '{"event_type":"trigger_build"}'
